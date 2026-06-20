@@ -1,0 +1,21 @@
+---
+# Ansible Lint configuration for Project Horizon.
+# https://ansible-lint.readthedocs.io/configuring/
+
+exclude_paths:
+  - .ansible/
+  - .cache/
+  - .terraform/
+  - .venv/
+  - __pycache__/
+  - build/
+  - dist/
+  - node_modules/
+  - vendor/
+
+warn_list:
+  - experimental
+  - yaml[line-length]
+
+# Add temporary exceptions here with a short justification in the pull request.
+skip_list: []

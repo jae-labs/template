@@ -1,0 +1,226 @@
+# Project Horizon local artifacts
+/project-horizon
+/project-horizon.exe
+/bin/
+/build/
+/dist/
+/out/
+/tmp/
+
+# OS files
+.DS_Store
+__MACOSX/
+.AppleDouble
+.LSOverride
+Icon[]
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+*~
+.nfs*
+
+# Editors and local workspace settings
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*.swn
+*.bak
+*.orig
+
+# Local environment, credentials, and certificates
+.env
+.env.*
+!.env.example
+*.crt
+*.csr
+*.der
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*-sa-key.json
+secrets/
+**/secrets/
+
+# Logs, reports, and coverage
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+coverage/
+coverage.*
+*.coverprofile
+*.lcov
+.nyc_output/
+junit.xml
+test-results/
+playwright-report/
+
+# Archives and packaged artifacts
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.tgz
+*.war
+*.zip
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Node, JavaScript, and TypeScript
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.next/
+.nuxt/
+.svelte-kit/
+.astro/
+.vite/
+storybook-static/
+
+# Python
+.python-version
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# Ruby
+.bundle/
+vendor/bundle/
+Gemfile.lock.local
+
+# Rust
+target/
+Cargo.lock.orig
+
+# Java, Kotlin, and JVM
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+build/
+out/
+*.class
+*.ear
+*.war
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+TestResult*/
+
+# PHP
+vendor/
+composer.phar
+
+# Terraform and OpenTofu
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+.terraform.lock.hcl.local
+
+# Ansible
+.ansible/
+*.retry
+collections/ansible_collections/
+
+# Docker and local container tooling
+.docker/
+docker-compose.override.yml
+
+# Cloud and deployment tooling
+.aws/
+.azure/
+.gcloud/
+.wrangler/
+.serverless/
+.sst/
+.vercel/
+.netlify/
+
+# Databases and local state
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+.cache/
+.tmp/
+
+# Agent and AI tooling state
+.claude/
+.codex/
+.continue/
+.aider*
+.antigravitycli/

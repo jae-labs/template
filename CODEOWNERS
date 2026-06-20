@@ -1,0 +1,8 @@
+# Project Horizon ownership.
+# Replace these placeholders with real GitHub users or teams before enabling branch protection.
+
+* @OWNER/project-horizon-maintainers
+
+# /docs/ @OWNER/project-horizon-docs
+# /infra/ @OWNER/project-horizon-platform
+# /.github/ @OWNER/project-horizon-maintainers
