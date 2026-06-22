@@ -1,0 +1,45 @@
+---
+name: CI
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # ratchet:actions/checkout@v7
+
+      - name: Set up mise
+        uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # ratchet:jdx/mise-action@v4
+        with:
+          install: true
+          cache: true
+
+      - name: Install pnpm dependencies
+        if: ${{ hashFiles('pnpm-lock.yaml') != '' }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Install npm dependencies
+        if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm ci
+
+      - name: Run pre-commit checks
+        run: lefthook run pre-commit --all-files
+
+      - name: Run pre-push checks
+        run: lefthook run pre-push --all-files

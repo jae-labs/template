@@ -1,0 +1,92 @@
+# Version control and repository metadata
+.git
+.git/
+.github/
+.gitignore
+.gitattributes
+
+# Local environment dumps, credentials, and secrets
+.env
+.env.*
+*.crt
+*.key
+*.pem
+*.p12
+*.pfx
+*-sa-key.json
+secrets/
+**/secrets/
+.doppler/
+
+# OS and editor files
+.DS_Store
+__MACOSX/
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs and reports
+*.log
+logs/
+coverage/
+coverage.*
+*.coverprofile
+junit.xml
+
+# Build outputs and temporary files
+bin/
+build/
+dist/
+out/
+tmp/
+*.test
+*.out
+
+# Go
+go.work
+go.work.sum
+
+# Node and frontend tooling
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.next/
+.nuxt/
+.svelte-kit/
+.astro/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Terraform and IaC state
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local cloud and container tooling
+.aws/
+.azure/
+.gcloud/
+.wrangler/
+.docker/
+
+# Local agent and AI tooling state
+.claude/
+.codex/
+.continue/
+.aider*
+.antigravitycli/

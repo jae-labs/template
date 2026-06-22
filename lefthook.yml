@@ -1,0 +1,89 @@
+---
+# Lefthook Git hooks for Project Horizon.
+# https://github.com/evilmartians/lefthook
+#
+# Tool versions are pinned via mise. Install them with:
+#   mise install
+
+pre-commit:
+  parallel: false
+  commands:
+    go-fmt:
+      glob: "**/*.go"
+      run: gofmt -w {staged_files}
+      stage_fixed: true
+
+    shell-fmt:
+      glob: "**/*.{sh,bash}"
+      run: shfmt -w {staged_files}
+      stage_fixed: true
+
+    prettier:
+      glob: "**/*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}"
+      run: prettier --write {staged_files}
+      stage_fixed: true
+
+    taplo-fmt:
+      glob: "**/*.toml"
+      run: taplo fmt {staged_files}
+      stage_fixed: true
+
+    terraform-fmt:
+      glob: "**/*.tf"
+      run: terraform fmt -recursive
+      stage_fixed: true
+
+    go-lint:
+      glob: "**/*.go"
+      run: golangci-lint run --timeout=5m
+
+    shell-lint:
+      glob: "**/*.{sh,bash}"
+      run: shellcheck {staged_files}
+
+    yaml-lint:
+      glob: "**/*.{yml,yaml}"
+      run: yamllint {staged_files}
+
+    markdown-lint:
+      glob: "**/*.md"
+      run: markdownlint-cli2 {staged_files}
+
+    github-actions-lint:
+      glob: ".github/workflows/*.{yml,yaml}"
+      run: actionlint {staged_files}
+
+    terraform-lint:
+      glob: "**/*.tf"
+      run: tflint --recursive --config="$PWD/.tflint.hcl"
+
+    ansible-lint:
+      glob: "{ansible/**,playbooks/**,roles/**,collections/**}"
+      env:
+        ANSIBLE_ROLES_PATH: roles
+      run: ansible-lint
+
+    secrets-scan:
+      run: gitleaks protect --staged --redact --verbose
+
+pre-push:
+  parallel: false
+  commands:
+    go-test:
+      glob: "**/*.go"
+      run: go test -race ./...
+
+    node-check:
+      glob: "{package.json,pnpm-lock.yaml,src/**,app/**,web/**}"
+      run: |
+        if [ -f pnpm-lock.yaml ]; then
+          pnpm check
+        elif [ -f package.json ]; then
+          npm run check --if-present
+        fi
+
+    terraform-check:
+      glob: "**/*.tf"
+      run: |
+        terraform fmt -check -recursive
+        tflint --recursive --config="$PWD/.tflint.hcl"
